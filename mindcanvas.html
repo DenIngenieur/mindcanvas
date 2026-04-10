@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Freeform Mind Canvas – Paper‑like thinking tool</title>
+    <link rel="stylesheet" href="css/mindmap.css">
+</head>
+<body>
+<div id="infoPanel">
+    <div id="coords">zoom: 1.00 | pan: (0,0)</div>
+    <div id="statusMsg">Ready</div>
+</div>
+
+<button id="fab" class="fab">🛠️</button>
+
+<div id="toolbarContainer" class="toolbar-container collapsed">
+  <div id="toolbar">
+
+      <!-- MODES -->
+      <div class="tool-group">
+          <button id="modeSelect" class="active">✋ Select/Move</button>
+          <button id="modePen">✏️ Pen</button>
+          <button id="modeMarker">🟡 Marker</button>
+          <button id="modeEraser">🧽 Eraser</button>
+          <button id="modeText">📝 Text</button>
+          <button id="modeRect">⬛ Rect</button>
+          <button id="modeEllipse">⭕ Ellipse</button>
+          <button id="modeCircle">🔵 Circle</button>
+          <button id="modeCloud">☁️ Cloud</button>
+      </div>
+
+      <!-- COLORS & SIZES -->
+      <div class="tool-group">
+          <label>🎨 Pen: <input type="color" id="penColor" value="#2c3e4e"></label>
+          <label>🖌️ Marker: <input type="color" id="markerColor" value="#ffeb3b"></label>
+          <label>🧽 Bg: <input type="color" id="bgColor" value="#fef8e7"></label>
+          <label>🟦 Stroke: <input type="color" id="strokeColor" value="#2c3e4e"></label>
+          <label>🟨 Fill: <input type="color" id="fillColor" value="#ffffff"></label>
+          <label>✏️ Text: <input type="color" id="textColor" value="#1e3c3c"></label>
+          <label>📏 Brush: <input type="range" id="brushSize" min="1" max="20" value="3"></label>
+          <label>🔤 Font size:
+              <select id="fontSizeSelect">
+                  <option value="14">Small</option>
+                  <option value="20" selected>Normal</option>
+                  <option value="28">Large</option>
+                  <option value="36">Huge</option>
+              </select>
+          </label>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="tool-group">
+          <button id="clearAll">🗑 Clear</button>
+          <button id="screenshotBtn">📸 Screenshot</button>
+          <button id="saveBtn">💾 Save (local)</button>
+          <button id="loadBtn">📂 Load (local)</button>
+          <button id="revertBtn">↩️ Undo</button>
+          <button id="exportBtn">📎 Export JSON</button>
+          <button id="importBtn">📂 Import JSON</button>
+          <input type="file" id="importFileInput" accept=".json" style="display: none;">
+      </div>
+
+  </div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<dialog id="textDialog">
+    <form method="dialog">
+        <header>
+            <h3>Edit Text</h3>
+        </header>
+        <section>
+            <textarea id="dialogInput" placeholder="Type your text here..."></textarea>
+        </section>
+        <footer>
+            <button type="button" id="dialogCancel">Cancel</button>
+            <button type="submit" id="dialogConfirm">Save</button>
+        </footer>
+    </form>
+</dialog>
+
+<script src="js/mindcanvas.js"></script>
+</body>
+</html>
+
